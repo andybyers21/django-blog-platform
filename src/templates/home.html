@@ -5,5 +5,27 @@ Welcome
 {% endblock %}
 
 {% block content %}
-<p>Here is my home-page</p>
+
+{% comment %} These are django context processors {% endcomment %}
+
+{{ title }}
+
+<p> - {{ request.user }}</p>
+
+<p> - {{ request.path }}</p>
+
+<p> - {{ user }}</p>
+
+<p> - {{user.is_authenticated }}</p>
+
+{% if user.is_authenticated %}
+
+<h2> Here is a list for logged in users </h2>
+
+    {% for a in aList %}
+        <li> {{ a }} </li>
+    {% endfor %}
+
+{% endif %}
+
 {% endblock %}

@@ -1,11 +1,14 @@
-# from django.http import HttpResponse
+from django.http import HttpResponse
 from django.shortcuts import render
+from django.template.loader import get_template
 
 
 def home_page(request):
     username = request.user.username
     hometitle = f"Welcome to my django-blog-platform " + username
-    return render(request, 'home.html', {"title": hometitle})
+    context = {"title": hometitle, "aList": [
+        "one", "two", "three", "four", "five"]}
+    return render(request, 'home.html', context)
 
 
 def about_page(request):

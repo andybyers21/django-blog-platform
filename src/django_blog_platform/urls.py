@@ -28,5 +28,6 @@ urlpatterns = [
     path('about/', about_page),
     path('contact/', contact_page),
     path('admin/', admin.site.urls),
-    path('blog/<int:post_id>/', blog_post_detail_page)
+    # path('blog/', blog_post_detail_page) TODO: root blog path
+    path('blog/<str:slug>/', blog_post_detail_page)
 ]

@@ -20,8 +20,9 @@ def blog_post_detail_page(request, slug):
 def blog_post_list_view(request):
     # return a list of objects (blog posts)
     # search?
+    qs = BlogPost.objects.all()     # list view
     template_name = "blog_post_list.html"
-    context = {"object_list": []}
+    context = {"object_list": qs}
     return render(request, template_name, context)
 
 

@@ -21,13 +21,14 @@ from .views import (home_page,
                     contact_page
                     )
 
-from blog_posts.views import (blog_post_detail_page)
+from blog_posts.views import (blog_post_detail_page,
+                              blog_post_list_view)
 
 urlpatterns = [
     path('', home_page),
     path('about/', about_page),
     path('contact/', contact_page),
     path('admin/', admin.site.urls),
-    # path('blog/', blog_post_detail_page) TODO: root blog path
+    path('blog/', blog_post_list_view),
     path('blog/<str:slug>/', blog_post_detail_page)
 ]

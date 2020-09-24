@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block head_title %}
+Django Blogs
+{% endblock %}
+
+{% block content %}
+    {% for object in object_list %}
+        <h3><li>{{ object.title }}</li></h3>
+        <p>{{ object.content }}</p>
+    {% endfor %}
+{% endblock %}
+

@@ -8,7 +8,8 @@ User = settings.AUTH_USER_MODEL
 
 class BlogPost(models.Model):
     """Declare fields that will be mapped into the database."""
-    user = models.ForeignKey(User, default=1, on_delete=models.SET_DEFAULT)
-    title = models.CharField(max_length=100)
+    user = models.ForeignKey(User, default=1, null=True,
+                             on_delete=models.SET_NULL)
+    title = models.CharField(max_length=120)
     slug = models.SlugField(unique=True)
     content = models.TextField(null=True, blank=True)

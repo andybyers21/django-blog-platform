@@ -23,11 +23,12 @@ from .views import (about_page,
 
 from blog_posts.views import (blog_post_create_view)
 
+
 urlpatterns = [
     path('', home_page),
     path('about/', about_page),
     path('admin/', admin.site.urls),
     path('blog/', include('blog_posts.urls')),
     path('contact/', contact_page),
-    path('new-blog-post/', blog_post_create_view)
+    path('create/', blog_post_create_view)
 ]

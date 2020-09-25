@@ -23,4 +23,4 @@ def contact_page(request):
         form = ContactForm()
     context = {"title": "Contact ME",
                "form": form}
-    return render(request, 'contact.html', context)
+    return render(request, 'form.html', context)

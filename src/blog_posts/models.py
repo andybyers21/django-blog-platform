@@ -5,6 +5,6 @@ from django.db import models
 
 class BlogPost(models.Model):
     """Declare fields that will be mapped into the database."""
-    title = models.TextField()
+    title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
     content = models.TextField(null=True, blank=True)

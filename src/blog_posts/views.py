@@ -12,7 +12,8 @@ from .forms import BlogPostModelForm
 def blog_post_list_view(request):
     # return a list of objects (blog posts)
     # search?
-    qs = BlogPost.objects.all()     # list view
+    # qs = query set list view, .published for search feature to only get the published posts
+    qs = BlogPost.objects.all().published()
     template_name = "blog_posts/list.html"
     context = {"object_list": qs}
     return render(request, template_name, context)

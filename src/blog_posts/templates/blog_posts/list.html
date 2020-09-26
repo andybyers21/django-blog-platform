@@ -6,7 +6,7 @@ Django Blogs
 
 {% block content %}
     {% for object in object_list %}
-        <h3><li>{{ object.title }}</li></h3>
+        <h3><li><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></li></h3>
         <p>{{ object.content }}</p>
     {% endfor %}
 {% endblock %}

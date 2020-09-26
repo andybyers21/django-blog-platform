@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 
 {% block head_title %}
-{{ object.title }}
+    DELETE: {{ object.title }}
 {% endblock %}
 
-
+{% comment %} confirm page.. {% endcomment %}
 {% block content %}
-<h1>{{ object.title }} - DELETE!</h1>
-<p>{{ object.content }}</p>
+    <h1>ARE YOU SURE YOU WANT TO DELETE:</h1>
+    <h2>{{ object.title }}</h2>
+
+    <form method="POST"> {% csrf_token %}
+        <button class="btn btn-danger">DELETE!</button>
+    </form>
 {% endblock %}
 

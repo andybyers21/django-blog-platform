@@ -15,10 +15,18 @@ class BlogPostModelForm(forms.ModelForm):
         model = BlogPost
         fields = ['title', 'slug', 'content']
 
-    def clean_title(self, *args, **kwargs):
-        print(dir(self))
-        title = self.cleaned_data.get('title')
-        qs = BlogPost.objects.filter(title__iexact=title)
-        if qs.exists:
-            raise forms.ValidationError("this title has already been used")
-        return title
+    # def clean_title(self, *args, **kwargs):
+    """ Prevent duplicate title instances.
+
+    This code is not working and I don't know why???
+    Look up and make your own.
+    """
+    #     instance = self.instance
+    #     title = self.cleaned_data.get('title')
+    #     qs = BlogPost.objects.filter(title__iexact=title)
+    #     if instance is not None:
+    #         qs = qs.exclude(pk=instance.pk)     # id=instance.id
+    #     if qs.exists:
+    #         raise forms.ValidationError(
+    #             "This title has already been used. Please choose another.")
+    #     return title

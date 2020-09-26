@@ -13,10 +13,10 @@
 
     {% if request.user.is_authenticated %}
         {% if request.user.is_staff %}
-        <div class="col-12">
-            <a href="{{ object.get_edit_url }}">Edit this post.</a>
-            <a href="{{ object.get_delete_url }}">Delete this post.</a>
-        </div>
+            <div class="col-12">
+                <a href="{{ object.get_edit_url }}">Edit this post.</a>
+                <a href="{{ object.get_delete_url }}">Delete this post.</a>
+            </div>
         {% endif %}
     {% endif %}
 

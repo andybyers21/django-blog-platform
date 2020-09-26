@@ -13,7 +13,10 @@ from .models import BlogPost
 class BlogPostModelForm(forms.ModelForm):
     class Meta:
         model = BlogPost
-        fields = ['title', 'slug', 'content']
+        fields = ['title',
+                  'slug',
+                  'content',
+                  'publish_date']
 
     # def clean_title(self, *args, **kwargs):
     """ Prevent duplicate title instances.

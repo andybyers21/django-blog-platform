@@ -12,8 +12,15 @@ from .forms import BlogPostModelForm
 def blog_post_list_view(request):
     # return a list of objects (blog posts)
     # search?
+
     # qs = query set list view, .published for search feature to only get the published posts
     qs = BlogPost.objects.all().published()
+
+    # show draft posts to authenticated user
+    if request.user.is_authenticated:
+        user_qs = BlogPost.objects.filter(user=request.user)
+        qs = (qs | user_qs).distinct()
+
     template_name = "blog_posts/list.html"
     context = {"object_list": qs}
     return render(request, template_name, context)
@@ -54,6 +61,7 @@ def blog_post_update_view(request, slug):
     template_name = 'blog_posts/form.html'
     context = {"form": form, "title": f"Updating: {obj.title}"}
     return render(request, template_name, context)
+    # TODO: add date format YYYY-MM-DD to update page
 
 
 # @login_required

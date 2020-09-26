@@ -1,9 +1,17 @@
 <div class="col-12 col-md-7 mx-auto">
-    <div class="card">
+    <div class="card {% if not blog_post.publish_date %} border border-warning {% endif %}">
         <div class="card-body">
             <h3 class="card-title">
                 {{ blog_post.title }}
             </h3>
+
+            <small class="text-muted">{{ blog_post.publish_date}}</small>    
+
+            {% if not blog_post.publish_date%} 
+                {% comment %} TODO: change styling accordingly for draft posts {% endcomment %}
+                <h5 style="color: red;">DRAFT</h5> 
+            {% endif%}
+
             <p class="card-text">
                 {% if truncate %}
                     {{ blog_post.content|linebreaks|truncatewords:60 }}

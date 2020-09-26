@@ -4,12 +4,13 @@ from django.template.loader import get_template
 
 from .forms import ContactForm
 from blog_posts.models import BlogPost
+from blog_posts.forms import BlogPostModelForm
 
 
 def home_page(request):
     username = request.user.username
     hometitle = f"Welcome to my django-blog-platform " + username
-    qs = BlogPost.objects.all()[:5]
+    qs = BlogPost.objects.all().published()[:5]
     context = {"title": hometitle, 'blog_list': qs}
     return render(request, 'home.html', context)
 

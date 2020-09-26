@@ -12,7 +12,7 @@ class BlogPostQuerySet(models.QuerySet):
     def published(self):
         now = timezone.now()
         # get_queryset == BlogPosts.objects
-        return self.get_queryset().filter(publish_date__lte=now)
+        return self.filter(publish_date__lte=now)
 
 
 class BlogPostManager(models.Manager):

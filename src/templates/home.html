@@ -6,14 +6,12 @@ Welcome
 
 {% block content %}
 
-{% comment %} These are django context processors {% endcomment %}
-
 <h1>{{ title }}</h1>
 
 <h2> Whats new in the blog? </h2>
 
     {% for a in blog_list %}
-        {% include 'blog_posts/list-inline.html' with blog_post=a %}
+        {% include 'blog_posts/list-inline.html' with blog_post=a truncate=True detail=False %}
     {% endfor %}
 
 {% endblock %}

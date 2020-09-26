@@ -5,9 +5,9 @@ Django Blogs
 {% endblock %}
 
 {% block content %}
-<div class="card-group">
+<div class="row">
     {% for object in object_list %}
-        {% include 'blog_posts/list-inline.html' with blog_post=object %}  
+        {% include 'blog_posts/list-inline.html' with blog_post=object truncate=True detail=False %}  
     {% endfor %}
 </div>
 {% endblock %}

@@ -5,9 +5,10 @@ Django Blogs
 {% endblock %}
 
 {% block content %}
+<div class="card-group">
     {% for object in object_list %}
-        <h3><li><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></li></h3>
-        <p>{{ object.content }}</p>
+        {% include 'blog_posts/list-inline.html' with blog_post=object %}  
     {% endfor %}
+</div>
 {% endblock %}
 

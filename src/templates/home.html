@@ -8,24 +8,12 @@ Welcome
 
 {% comment %} These are django context processors {% endcomment %}
 
-{{ title }}
+<h1>{{ title }}</h1>
 
-<p> - {{ request.user }}</p>
+<h2> Whats new in the blog? </h2>
 
-<p> - {{ request.path }}</p>
-
-<p> - {{ user }}</p>
-
-<p> - {{user.is_authenticated }}</p>
-
-{% if user.is_authenticated %}
-
-<h2> Here is a list for logged in users </h2>
-
-    {% for a in aList %}
-        <li> {{ a }} </li>
+    {% for a in blog_list %}
+        {% include 'blog_posts/list-inline.html' with blog_post=a %}
     {% endfor %}
-
-{% endif %}
 
 {% endblock %}

@@ -14,16 +14,17 @@ class BlogPostModelForm(forms.ModelForm):
     class Meta:
         model = BlogPost
         fields = ['title',
+                  'image',
                   'slug',
                   'content',
                   'publish_date']
 
     # def clean_title(self, *args, **kwargs):
-    """ Prevent duplicate title instances.
+    #     """ Prevent duplicate title instances.
 
-    This code is not working and I don't know why???
-    Look up and make your own.
-    """
+    #     This code is not working and I don't know why???
+    #     Look up and make your own.
+    #     """
     #     instance = self.instance
     #     title = self.cleaned_data.get('title')
     #     qs = BlogPost.objects.filter(title__iexact=title)

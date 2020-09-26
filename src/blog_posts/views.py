@@ -33,7 +33,8 @@ def blog_post_create_view(request):
     # request.user will return something...
     # TODO: add redirect after form.save
     #       - Or maybe add links cos you may want to add sevral posts?
-    form = BlogPostModelForm(request.POST or None)
+    #       - theres a navbar....
+    form = BlogPostModelForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         obj = form.save(commit=False)
         obj.user = request.user

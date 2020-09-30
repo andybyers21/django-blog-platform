@@ -125,11 +125,11 @@ STATIC_URL = '/static/'
 LOCAL_STATIC_CDN_PATH = os.path.join(
     os.path.dirname(BASE_DIR), 'static_cdn_test')
 
-# Live CDN (eg. AWS or S3)
+# Live CDN (eg. AWS S3)
 STATIC_ROOT = os.path.join(LOCAL_STATIC_CDN_PATH, 'static')
 STATICFILES_DIRS = [
     os.path.join('staticfiles')
 ]
 
 MEDIA_ROOT = os.path.join(LOCAL_STATIC_CDN_PATH, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/'   # django-storages

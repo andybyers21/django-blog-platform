@@ -31,15 +31,13 @@ def blog_post_list_view(request):
 def blog_post_create_view(request):
     # create objects with a django form
     # request.user will return something...
-    # TODO: add redirect after form.save
-    #       - Or maybe add links cos you may want to add sevral posts?
-    #       - theres a navbar....
     form = BlogPostModelForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         obj = form.save(commit=False)
         obj.user = request.user
         form.save()
         form = BlogPostModelForm()
+        return redirect('/blog')
     template_name = "form.html"
     context = {"form": form}
     return render(request, template_name, context)
@@ -55,12 +53,12 @@ def blog_post_detail_view(request, slug):
 
 # @login_required
 @staff_member_required
-# TODO: add redirect after form.save
 def blog_post_update_view(request, slug):
     obj = get_object_or_404(BlogPost, slug=slug)
     form = BlogPostModelForm(request.POST or None, instance=obj)
     if form.is_valid():
         form.save()
+        return redirect('/blog')
     template_name = 'blog_posts/form.html'
     context = {"form": form, "title": f"Updating: {obj.title}"}
     return render(request, template_name, context)

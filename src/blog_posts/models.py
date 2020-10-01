@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.db.models import Q
 from django.utils import timezone
 # Create your models here.
 
@@ -14,6 +15,14 @@ class BlogPostQuerySet(models.QuerySet):
         # get_queryset == BlogPosts.objects
         return self.filter(publish_date__lte=now)
 
+    def search(self, query):
+        """ Complex lookup """
+        lookup = (Q(title__icontains=query) |
+                  Q(content__icontains=query) |
+                  Q(slug__icontains=query) |
+                  Q(user__username__icontains=query))
+        return self.filter(lookup)
+
 
 class BlogPostManager(models.Manager):
     def get_queryset(self):
@@ -21,6 +30,11 @@ class BlogPostManager(models.Manager):
 
     def published(self):
         return self.get_queryset().published()
+
+    def search(self, query=None):
+        if query is None:
+            return self.get_queryset().none()
+        return self.get_queryset().published().search(query)
 
 
 class BlogPost(models.Model):

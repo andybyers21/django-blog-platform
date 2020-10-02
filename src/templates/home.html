@@ -6,12 +6,18 @@ Welcome
 
 {% block content %}
 
-<h1>{{ title }}</h1>
+<div class="row mt-4 mb-3">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <h1>{{ title }}</h1>
+        <br>
+        <h2> Whats new in the blog? </h2>
+    </div>
+</div>
 
-<h2> Whats new in the blog? </h2>
-
+<div class="row">
     {% for a in blog_list %}
         {% include 'blog_posts/list-inline.html' with blog_post=a truncate=True detail=False %}
     {% endfor %}
-
+</div>
 {% endblock %}

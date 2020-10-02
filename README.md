@@ -12,18 +12,13 @@ A blogging platform built using Django 2.2, Python 3.6, SQLite 3 and Bootstrap.
 - URL routing.
 - Optimised for speed.
 
----
-
 ## Users for testing:
 - **User**, *username:* test-user *Password:* story011
 - **Admin**, *username:* test-staff *Password:* afraid357
 - **Superuser**, *username:* test-super *Password:* current912
 
----
-
 ## Depandancies
-
-| | |
+|||
 |----|----|
 autopep8 |   1.5.4
 Django   |   2.2
@@ -35,8 +30,6 @@ setuptools  |  49.6.0
 sqlparse    |  0.3.1
 toml        |  0.10.1
 wheel       |  0.35.1
-
----
 
 ## TO-DO
 - [ ] Add login URL to navbar.

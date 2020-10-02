@@ -12,7 +12,7 @@ A blogging platform built using Django 2.2, Python 3.6, SQLite 3 and Bootstrap.
 - URL routing.
 - Optimised for speed.
 
-## Users for testing:
+## Logins for testing:
 - **User**, *username:* test-user *Password:* story011
 - **Admin**, *username:* test-staff *Password:* afraid357
 - **Superuser**, *username:* test-super *Password:* current912

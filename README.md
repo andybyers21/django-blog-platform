@@ -31,11 +31,18 @@ sqlparse    |  0.3.1
 toml        |  0.10.1
 wheel       |  0.35.1
 
+---
+
 ## TO-DO
-- [ ] Add login URL to navbar.
-- [ ] Make navbar.create visible only to logged in admin/ super-user.
-- [ ] Add contact & about pages.
-- [ ] Update search returns 0 results page.
 - [ ] Define Error / 404 page.
+- [ ] Update search returns 0 results page, if returns no results - Say your search for … returned no results
 - [ ] Refactor & document code.
+- [ ] Take out of Debug Mode
 - [ ] Host.
+
+---
+
+## Bugs
+- [ ] Two Login buttons on Nav before login
+- [ ] Add image to an edited post is borken.
+
